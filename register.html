@@ -10,8 +10,7 @@
 
     <link href="css/particles.css" rel="stylesheet"/>
     <link href="css/auth.css" rel="stylesheet"/>
-    <script src="https://www.google.com/recaptcha/api.js?render=6LdS3KcoAAAAAHFSiNKGRIOiuvcmRvOFd113E5OI"></script>
-</head>
+    </head>
 
 <body>
 <div id="tsparticles"></div>
@@ -49,9 +48,8 @@
         <div class="inputBox">
             <label for="userConfirmPassword">Confirm Password</label>
             <input type="password" name="userConfirmPassword" id="userConfirmPassword" placeholder="confirm your password" required minlength="8" maxlength="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain at least one number, one uppercase, and one lowercase letter"/>
-        </div>
-        <div class="g-recaptcha" data-sitekey="6LdS3KcoAAAAAHFSiNKGRIOiuvcmRvOFd113E5OI"></div>
-        <button type="submit" name="" style="float: left;">Submit</button>
+        </di>        
+            <button type="submit" name="" style="float: left;">Submit</button>
         <a class="button" href="login.html" style="float: left;">Login</a>
         <div class="g-recaptcha" data-sitekey=6LdS3KcoAAAAAHFSiNKGRIOiuvcmRvOFd113E5OI></div>
 
@@ -61,35 +59,17 @@
 </footer>
 
 <script>
-   function validateForm() {
-    // Verify reCAPTCHA
-    grecaptcha.ready(function() {
-      grecaptcha.execute('6LdS3KcoAAAAAHFSiNKGRIOiuvcmRvOFd113E5OI', {action: 'submit'}).then(function(token) {
-        // Include the reCAPTCHA token in your form submission
-        var recaptchaResponse = document.getElementById('g-recaptcha-response');
-        recaptchaResponse.value = token;
-
-        // You can add additional form validation here if needed
-
-        // Continue form submission
-        document.querySelector('form').submit();
-      });
-    });
-
-    return false; // Prevent the form from submitting immediately
-  }
 
 
 
-  // Use the correct API endpoint to fetch the country list
-  fetch('https://restcountries.com/v2/all') // Replace with the correct API URL
+  fetch('https://restcountries.com/v2/all') 
     .then(response => response.json())
     .then(data => {
-      // Populate country dropdown menu with retrieved data
+        
       const countrySelect = document.getElementById('country');
       data.forEach(country => {
         const option = document.createElement('option');
-        option.value = country.alpha2Code; // Change to the appropriate country code field
+        option.value = country.alpha2Code; 
         option.text = country.name;
         countrySelect.appendChild(option);
       });
