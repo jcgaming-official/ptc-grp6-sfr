@@ -8,36 +8,88 @@
     <meta name="author" content="Matteo Bruni">
     <title>Register Template - tsParticles</title>
 
-    <!-- Custom styles for this template -->
     <link href="css/particles.css" rel="stylesheet"/>
     <link href="css/auth.css" rel="stylesheet"/>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdS3KcoAAAAAHFSiNKGRIOiuvcmRvOFd113E5OI"></script>
+
 </head>
 
 <body>
 <div id="tsparticles"></div>
+<div class="box">
+    <span class="borderLine"></span>
 <main class="box">
     <h2>Register</h2>
     <form>
         <div class="inputBox">
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" id="firstName" placeholder="type your first name" required minlength="2" maxlength="50" pattern="[A-Za-z ]+" title="Please enter a valid name"/>
+        </div>
+        <div class="inputBox">
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" id="lastName" placeholder="type your last name" required minlength="2" maxlength="50" pattern="[A-Za-z ]+" title="Please enter a valid name"/>
+        </div>
+        <div class="inputBox">
+            <label for="birthdate">Birthdate</label>
+            <input type="date" name="birthdate" id="birthdate" required max="2005-12-31" min="1950-01-01"/>
+        </div>
+        <div class="inputBox">
+            <label for="country">Country</label>
+            <select name="country" id="country" required>
+              <option value="">Select a country</option>
+            </select>
+        </div>
+        <div class="inputBox">
             <label for="userName">Username</label>
-            <input type="text" name="userName" id="userName" placeholder="type your username" required/>
+            <input type="text" name="userName" id="userName" placeholder="type your username" required minlength="5" maxlength="20" pattern="[A-Za-z0-9]+" title="Please enter a valid username"/>
         </div>
         <div class="inputBox">
             <label for="userPassword">Password</label>
-            <input type="password" name="userPassword" id="userPassword" placeholder="type your password"
-                   required/>
+            <input type="password" name="userPassword" id="userPassword" placeholder="type your password" required minlength="8" maxlength="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain at least one number, one uppercase, and one lowercase letter"/>
         </div>
         <div class="inputBox">
             <label for="userConfirmPassword">Confirm Password</label>
-            <input type="password" name="userPassword" id="userConfirmPassword" placeholder="confirm your password"
-                   required/>
+            <input type="password" name="userConfirmPassword" id="userConfirmPassword" placeholder="confirm your password" required minlength="8" maxlength="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain at least one number, one uppercase, and one lowercase letter"/>
         </div>
         <button type="submit" name="" style="float: left;">Submit</button>
         <a class="button" href="login.html" style="float: left;">Login</a>
+        <div class="g-recaptcha" data-sitekey="6LdS3KcoAAAAAHFSiNKGRIOiuvcmRvOFd113E5OI"></div>
+
     </form>
 </main>
 <footer>
 </footer>
+
+<script>
+    function onClick(e) {
+e.preventDefault();
+grecaptcha.enterprise.ready(async () => {
+const token = await grecaptcha.enterprise.execute('6LdS3KcoAAAAAHFSiNKGRIOiuvcmRvOFd113E5OI', {action: 'LOGIN'});
+// IMPORTANT: The 'token' that results from execute is an encrypted response sent by
+// reCAPTCHA Enterprise to the end user's browser.
+// This token must be validated by creating an assessment.
+// See https://cloud.google.com/recaptcha-enterprise/docs/create-assessment
+});
+}
+
+
+  // Use the correct API endpoint to fetch the country list
+  fetch('https://restcountries.com/v2/all') // Replace with the correct API URL
+    .then(response => response.json())
+    .then(data => {
+      // Populate country dropdown menu with retrieved data
+      const countrySelect = document.getElementById('country');
+      data.forEach(country => {
+        const option = document.createElement('option');
+        option.value = country.alpha2Code; // Change to the appropriate country code field
+        option.text = country.name;
+        countrySelect.appendChild(option);
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching country data:', error);
+    });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.34.1/tsparticles.min.js"
         integrity="sha256-D6LXCdCl4meErhc25yXnxIFUtwR96gPo+GtLYv89VZo=" crossorigin="anonymous"></script>

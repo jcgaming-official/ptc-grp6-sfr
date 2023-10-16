@@ -11,6 +11,16 @@
     <!-- Custom styles for this template -->
     <link href="css/particles.css" rel="stylesheet"/>
     <link href="css/auth.css" rel="stylesheet"/>
+    <style>
+        /* Add the following CSS rules */
+        main.box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,16 +30,15 @@
     <form>
         <div class="inputBox">
             <label for="userName">Username</label>
-            <input type="text" name="userName" id="userName" placeholder="type your username" required/>
+            <input type="text" name="userName" id="userName" placeholder="Type your username" required/>
         </div>
         <div class="inputBox">
-            <label for="userPassword">Password</label>
-            <input type="password" name="userPassword" id="userPassword" placeholder="type your password"
-                   required/>
+            <label for "userPassword">Password</label>
+            <input type="password" name="userPassword" id="userPassword" placeholder="Type your password" required/>
         </div>
         <div>
-            <button type="submit" name="" style="float: left;">Submit</button>
-            <a class="button" href="register.html" style="float: left;">Register</a>
+            <button type="submit" name="">Submit</button>
+            <a class="button" href="register.html">Register</a>
         </div>
     </form>
 </main>

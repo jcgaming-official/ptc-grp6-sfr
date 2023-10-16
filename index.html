@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Group 6</title>
+    <style>
+      .toggle-button {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        cursor: pointer;
+        z-index: 1000;
+        color: #333;
+      }
+      .toggle-button:hover {
+        color: #007bff;
+      }
+      .toggle-button img {
+        width: 24px;
+        height: 24px;
+      }
+      .toggle-button img.hidden {
+        display: none;
+      }
+      .dark-mode {
+        background-color: #333;
+        color: #fff;
+      }
+      .dark-mode a {
+        color: #007bff;
+      }
+      .dark-mode .button {
+        color: #fff; 
+      }
+      .member {
+        display: inline-block;
+        text-align: center;
+        margin: 10px;
+        vertical-align: top;
+      }
+      .member img {
+        display: block;
+        margin: 0 auto;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+      }
+      .member a {
+        display: block;
+        margin-top: 10px;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        background-color: #007bff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s ease;
+      }
+      .button:hover {
+        background-color: #0062cc;
+      }
+      #clock {
+        font-size: 2em;
+        margin-top: 10px;
+      }
+      
+    </style>    
+  </head>
+  <body>
+    <div class="toggle-button" id="theme-toggle">
+      <img src="./switchToggle/sun.jpeg" alt="Sun" class="sun-icon">
+      <img src="./switchToggle/moon.jpeg" alt="Moon" class="moon-icon hidden">
+    </div>
+
+    <h1>Welcome to Group 6!</h1>
+    <p>Here are the names and Facebook profile links of our members:</p>
+    <div>
+      <div class="member">
+        <img src="./members_Image/tim.jpg" alt="Timothy Pambid">
+        <a href="https://www.facebook.com/noobexd">Timothy Pambid</a>
+        <p>Leader</p>
+      </div>
+      <div class="member">
+  <img src="./members_Image/andrane.jpg" alt="Andrane Billy Arellano">
+  <a href="https://www.facebook.com/asapbillyfo">Andrane Billy Arellano</a>
+</div>
+
+      <div class="member">
+        <img src="./members_Image/vis.jpg" alt="Christian Iner Visca">
+        <a href="https://www.facebook.com/Viscaaaaaa.21">Christian Iner Visca</a>
+      </div>
+      <div class="member">
+        <img src="./members_Image/pipo.jpg" alt="Leandro Pipo">
+        <a href="https://www.facebook.com/profile.php?id=100084775027709">Leandro Pipo</a>
+      </div>
+      <div class="member">
+        <img src="./members_Image/jim.jpg" alt="Jimdel Carunungan">
+        <a href="https://www.facebook.com/jimdel.carunungan.92">Jimdel Carunungan</a>
+      </div>
+      <div class="member">
+        <img src="./members_Image/jcq.jpg" alt="John Carl Quieta">
+        <a href="https://www.facebook.com/johncarl.quieta.5">John Carl Quieta</a>
+      </div>
+      <div class="member">
+        <img src="./members_Image/rhon.jpg" alt="Rhonn Pascual">
+        <a href="https://www.facebook.com/mattrhonn.pascual">Rhonn Pascual</a>
+      </div>
+    </div>
+    <a href="login.html" class="button">Login</a>
+    <a href="register.html" class="button">Register to Form</a>
+    <div id="clock"></div>
+    <script>
+      const toggleButton = document.getElementById('theme-toggle');
+      const body = document.body;
+
+      toggleButton.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        toggleButton.querySelector('.sun-icon').classList.toggle('hidden');
+        toggleButton.querySelector('.moon-icon').classList.toggle('hidden');
+      });
+
+      function updateTime() {
+        const clock = document.getElementById("clock");
+        const now = new Date();
+        const hours = now.getHours() % 12 || 12;
+        const minutes = now.getMinutes().toString().padStart(2, "0");
+        const seconds = now.getSeconds().toString().padStart(2, "0");
+        const amPm = now.getHours() < 12 ? "AM" : "PM";
+        clock.textContent = `${hours}:${minutes}:${seconds} ${amPm}`;
+      }
+
+      updateTime();
+      setInterval(updateTime, 1000);
+    </script>
+  </body>
+</html>
