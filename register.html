@@ -10,8 +10,7 @@
 
     <link href="css/particles.css" rel="stylesheet"/>
     <link href="css/auth.css" rel="stylesheet"/>
-    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdS3KcoAAAAAHFSiNKGRIOiuvcmRvOFd113E5OI"></script>
-
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdS3KcoAAAAAHFSiNKGRIOiuvcmRvOFd113E5OI"></script>
 </head>
 
 <body>
@@ -51,6 +50,7 @@
             <label for="userConfirmPassword">Confirm Password</label>
             <input type="password" name="userConfirmPassword" id="userConfirmPassword" placeholder="confirm your password" required minlength="8" maxlength="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain at least one number, one uppercase, and one lowercase letter"/>
         </div>
+        <div class="g-recaptcha" data-sitekey="6LdS3KcoAAAAAHFSiNKGRIOiuvcmRvOFd113E5OI"></div>
         <button type="submit" name="" style="float: left;">Submit</button>
         <a class="button" href="login.html" style="float: left;">Login</a>
         <div class="g-recaptcha" data-sitekey=6LdS3KcoAAAAAHFSiNKGRIOiuvcmRvOFd113E5OI></div>
@@ -61,16 +61,23 @@
 </footer>
 
 <script>
-   function onClick(e) {
-  e.preventDefault();
-  grecaptcha.enterprise.ready(async () => {
-    const token = await grecaptcha.enterprise.execute('6LdS3KcoAAAAAHFSiNKGRIOiuvcmRvOFd113E5OI', {action: 'LOGIN'});
-    // IMPORTANT: The 'token' that results from execute is an encrypted response sent by
-    // reCAPTCHA Enterprise to the end user's browser.
-    // This token must be validated by creating an assessment.
-    // See https://cloud.google.com/recaptcha-enterprise/docs/create-assessment
-  });
-}
+   function validateForm() {
+    // Verify reCAPTCHA
+    grecaptcha.ready(function() {
+      grecaptcha.execute('6LdS3KcoAAAAAHFSiNKGRIOiuvcmRvOFd113E5OI', {action: 'submit'}).then(function(token) {
+        // Include the reCAPTCHA token in your form submission
+        var recaptchaResponse = document.getElementById('g-recaptcha-response');
+        recaptchaResponse.value = token;
+
+        // You can add additional form validation here if needed
+
+        // Continue form submission
+        document.querySelector('form').submit();
+      });
+    });
+
+    return false; // Prevent the form from submitting immediately
+  }
 
 
 
