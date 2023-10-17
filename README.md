@@ -1,23 +1,18 @@
-# tsParticles Authentication Template
+# Log In Template
 
-tsParticles Simple Auth HTML Template for Websites
+Simple Website for Login and Registration form
 
-## Login Page Preview
-[![login](https://raw.githubusercontent.com/tsparticles/auth-template/master/__screenshots/login.png?raw=true)](https://tsparticles.github.io/auth-template/login.html)
-
-See working preview [here](https://tsparticles.github.io/auth-template/login.html)
+## Home Page Preview
+[![login](https://github.com/jcgaming-official/ptc-grp6-sfr/blob/c6eed599be726bef0524fb227bc9b2b74bf96036/screenshots/homepage.jpg)](https://ptc-grp6-sfr-oq4x.vercel.app/)
+[![login](https://raw.githubusercontent.com/jcgaming-official/ptc-grp6-sfr/c6eed599be726bef0524fb227bc9b2b74bf96036/screenshots/homepage1.jpg)](https://ptc-grp6-sfr-oq4x.vercel.app/)
+See working preview [here](https://ptc-grp6-sfr-oq4x.vercel.app/)
 
 ## Register Page Preview
-[![register](https://raw.githubusercontent.com/tsparticles/auth-template/master/__screenshots/register.png?raw=true)](https://tsparticles.github.io/auth-template/register.html)
+[![register](https://raw.githubusercontent.com/jcgaming-official/ptc-grp6-sfr/master/screenshots/register.jpg)](https://ptc-grp6-sfr-oq4x.vercel.app/register.html)
 
 See working preview [here](https://tsparticles.github.io/auth-template/register.html)
 
-## What is tsParticles
+## Login Page Preview
+[![register](https://raw.githubusercontent.com/jcgaming-official/ptc-grp6-sfr/master/screenshots/login.jpg)](https://ptc-grp6-sfr-oq4x.vercel.app/login.html)
 
-[tsParticles](https://github.com/matteobruni/tsparticles) is a lightweight library for easily creating particles animations in your websites or web applications.
-
-The [tsParticles](https://github.com/matteobruni/tsparticles) library is ready to be used in standard JavaScript, React, Vue.js, Angular, Svelte, jQuery, Preact, Inferno.
-
-Want to see more particles demos? [Checkout this collection](https://codepen.io/collection/DPOage)
-
-Want to see more templates or want to share yours? [Checkout this README](https://github.com/tsparticles/templates)
+See working preview [here](https://ptc-grp6-sfr-oq4x.vercel.app/login.html)
